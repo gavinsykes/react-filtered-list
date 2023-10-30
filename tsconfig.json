@@ -14,6 +14,14 @@
     "strictPropertyInitialization": false,  // Allow properties to be undefined without initialization
     "noUnusedLocals": true,              // Report errors on unused local variables
     "noUnusedParameters": true,          // Report errors on unused parameters
+    "declaration": true
+  },
+  "typedocOptions": {
+    "out": "./docs", // Output directory for generated documentation
+    "entryPoints": ["./src"], // Source code entry point
+    "exclude": ["node_modules"], // Files or directories to exclude
+    "includeDeclarations": true, // Include TypeScript declaration files
+    "mode": "file" // Generate documentation per file
   },
   "include": ["dev/src/**/*.ts", "dev/src/**/*.tsx"],
   "exclude": ["node_modules"]

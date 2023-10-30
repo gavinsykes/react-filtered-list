@@ -2,9 +2,14 @@
   "name": "@gavinsykes_uk/react-filtered-list",
   "version": "0.0.1",
   "description": "A reusable component to allow React to display fitered data in any format",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "ci": "npm run build && npm run test:cover",
+    "lint:prettier": "npm run lint && npm run prettier",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:cover": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -14,7 +19,11 @@
     "react",
     "filter"
   ],
-  "author": "Gavin Sykes",
+  "author": {
+    "name": "Gavin Sykes",
+    "email": "gavin@gavinsykes.uk",
+    "url": "https://gavinsykes.uk"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gavinsykes/react-filtered-list/issues"
@@ -29,6 +38,7 @@
     "@types/react-dom": "^18.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "typedoc": "^0.25.3",
     "typescript": "^5.2.2"
   }
 }
