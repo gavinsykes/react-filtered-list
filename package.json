@@ -1,0 +1,33 @@
+{
+  "name": "@gavinsykes_uk/react-filtered-list",
+  "version": "0.0.1",
+  "description": "A reusable component to allow React to display fitered data in any format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "rm -rf ./dist && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gavinsykes/react-filtered-list.git"
+  },
+  "keywords": [
+    "react",
+    "filter"
+  ],
+  "author": "Gavin Sykes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gavinsykes/react-filtered-list/issues"
+  },
+  "homepage": "https://github.com/gavinsykes/react-filtered-list#readme",
+  "peerDependencies": {
+    "react": ">18",
+    "react-dom": ">18"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
+  }
+}
