@@ -15,6 +15,6 @@
     "noUnusedLocals": true,              // Report errors on unused local variables
     "noUnusedParameters": true,          // Report errors on unused parameters
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["dev/src/**/*.ts", "dev/src/**/*.tsx"],
   "exclude": ["node_modules"]
 }
