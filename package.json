@@ -4,7 +4,7 @@
   "description": "A reusable component to allow React to display fitered data in any format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
