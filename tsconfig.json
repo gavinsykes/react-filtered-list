@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                  // Use the latest ECMAScript version
+    "module": "ESNext",                  // Use ES modules
+    "outDir": "./dist",                  // Output directory for transpiled code
+    "rootDir": "./src",                  // Source code directory
+    "strict": true,                      // Enable strict type checking
+    "esModuleInterop": true,             // Enable compatibility with CommonJS modules
+    "skipLibCheck": true,                // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true,  // Enforce consistent file casing
+    "moduleResolution": "node",         // Specify module resolution strategy
+    "resolveJsonModule": true,           // Enable JSON module imports
+    "jsx": "react-jsx",                  // Specify the JSX target for React 18
+    "strictPropertyInitialization": false,  // Allow properties to be undefined without initialization
+    "noUnusedLocals": true,              // Report errors on unused local variables
+    "noUnusedParameters": true,          // Report errors on unused parameters
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
