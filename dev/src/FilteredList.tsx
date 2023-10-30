@@ -33,6 +33,9 @@ export function useFilteredListContext<TData>(): FilteredListContextProps<TData>
   return context;
 }
 
+/**
+ * Properties for the FilteredList component
+ */
 export interface FilteredListProps<TData> {
   children: ReactNode;
   data: Array<TData>;

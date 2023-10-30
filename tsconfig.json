@@ -17,11 +17,10 @@
     "declaration": true
   },
   "typedocOptions": {
-    "out": "./docs", // Output directory for generated documentation
-    "entryPoints": ["./src"], // Source code entry point
-    "exclude": ["node_modules"], // Files or directories to exclude
-    "includeDeclarations": true, // Include TypeScript declaration files
-    "mode": "file" // Generate documentation per file
+    "out": "./docs",
+    "entryPoints": ["./dev/src"],
+    "exclude": ["node_modules"],
+    "theme": "default"
   },
   "include": ["dev/src/**/*.ts", "dev/src/**/*.tsx"],
   "exclude": ["node_modules"]
