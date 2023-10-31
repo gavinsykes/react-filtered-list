@@ -1,12 +1,21 @@
-import { ChangeEvent, createContext, HTMLProps, Key, ReactElement, ReactNode, useContext, useState } from "react";
-import NoList from "./Bodies/NoList";
-import OList from "./Bodies/OList";
-import TBody from "./Bodies/TBody";
-import UList from "./Bodies/UList";
-import Reset from "./Buttons/Reset";
-import Input from "./Inputs/Input";
-import Radios from "./Inputs/Radios";
-import Select from "./Inputs/Select";
+import {
+  ChangeEvent,
+  createContext,
+  HTMLProps,
+  Key,
+  ReactElement,
+  ReactNode,
+  useContext,
+  useState,
+} from 'react';
+import NoList from './Bodies/NoList';
+import OList from './Bodies/OList';
+import TBody from './Bodies/TBody';
+import UList from './Bodies/UList';
+import Reset from './Buttons/Reset';
+import Input from './Inputs/Input';
+import Radios from './Inputs/Radios';
+import Select from './Inputs/Select';
 
 interface FilteredListContextProps<TData> {
   filterValues: Partial<TData>;
@@ -23,11 +32,15 @@ export function createFilteredListContext<TData>() {
 
 const FilteredListContext = createFilteredListContext();
 
-export function useFilteredListContext<TData>(): FilteredListContextProps<TData> {
-  const context = useContext(FilteredListContext) as FilteredListContextProps<TData>;
+export function useFilteredListContext<
+  TData,
+>(): FilteredListContextProps<TData> {
+  const context = useContext(
+    FilteredListContext,
+  ) as FilteredListContextProps<TData>;
   if (!context) {
     throw new Error(
-      "FilteredList.* components must be rendered as a child of the FilteredListComponent"
+      'FilteredList.* components must be rendered as a child of the FilteredListComponent',
     );
   }
   return context;
@@ -41,13 +54,20 @@ export interface FilteredListProps<TData> {
   data: Array<TData>;
 }
 
-export function FilteredList<TData>({ children, data }: FilteredListProps<TData>): ReactElement {
+export function FilteredList<TData>({
+  children,
+  data,
+}: FilteredListProps<TData>): ReactElement {
   const [filterValues, setFilterValues] = useState<Partial<TData>>({});
   const filteredProperties = Object.keys(filterValues) as Array<keyof TData>;
   const updateFilterValue = (properties: Partial<TData>) => {
-    setFilterValues(prev => ({...prev,...properties}));
-  }
-  const filterByProperty = (item: TData, property: keyof TData, value: TData[keyof TData]): boolean => {
+    setFilterValues((prev) => ({ ...prev, ...properties }));
+  };
+  const filterByProperty = (
+    item: TData,
+    property: keyof TData,
+    value: TData[keyof TData],
+  ): boolean => {
     const propertyValue = item[property];
     if (!propertyValue || !value) {
       return true;
@@ -62,8 +82,11 @@ export function FilteredList<TData>({ children, data }: FilteredListProps<TData>
       return propertyValue === value;
     }
     return false;
-  }
-  const generateCombinedFilter = (properties: Array<keyof TData>, values: Partial<TData>): ((item: TData) => boolean) => {
+  };
+  const generateCombinedFilter = (
+    properties: Array<keyof TData>,
+    values: Partial<TData>,
+  ): ((item: TData) => boolean) => {
     return (item: TData) => {
       for (const property of properties) {
         const value = values[property] as TData[keyof TData];
@@ -72,16 +95,26 @@ export function FilteredList<TData>({ children, data }: FilteredListProps<TData>
         }
       }
       return true;
-    }
-  }
+    };
+  };
   const resetFilters = () => {
     setFilterValues({});
   };
-  const combinedFilter = generateCombinedFilter(filteredProperties, filterValues);
+  const combinedFilter = generateCombinedFilter(
+    filteredProperties,
+    filterValues,
+  );
   const filteredData = data.filter(combinedFilter);
   const unfilteredDataLength = data.length;
   const filteredDataLength = filteredData.length;
-  const contextValue: FilteredListContextProps<TData> = { filterValues, filteredData, filteredDataLength, resetFilters, unfilteredDataLength, updateFilterValue };
+  const contextValue: FilteredListContextProps<TData> = {
+    filterValues,
+    filteredData,
+    filteredDataLength,
+    resetFilters,
+    unfilteredDataLength,
+    updateFilterValue,
+  };
   return (
     <FilteredListContext.Provider value={contextValue}>
       {children}
@@ -89,12 +122,14 @@ export function FilteredList<TData>({ children, data }: FilteredListProps<TData>
   );
 }
 
-export interface FilteredListFilterInputProps<TData, TElement> extends HTMLProps<TElement> {
+export interface FilteredListFilterInputProps<TData, TElement>
+  extends HTMLProps<TElement> {
   assignedProperty: keyof TData;
   handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface FilteredListBodyProps<TData, TRendered, TElement> extends HTMLProps<TElement> {
+export interface FilteredListBodyProps<TData, TRendered, TElement>
+  extends HTMLProps<TElement> {
   render: (item: TData, key: Key) => ReactElement<TRendered>;
 }
 
@@ -102,15 +137,15 @@ FilteredList.Bodies = {
   NoList,
   OList,
   TBody,
-  UList
+  UList,
 };
 
 FilteredList.Filters = {
   Input,
   Radios,
-  Select
+  Select,
 };
 
 FilteredList.Buttons = {
-  Reset
+  Reset,
 };
