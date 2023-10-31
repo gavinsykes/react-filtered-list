@@ -8,7 +8,9 @@
     "build": "tsc",
     "ci": "npm run build && npm run test:cover",
     "docs": "npx typedoc",
+    "lint": "eslint ./dev --fix",
     "lint:prettier": "npm run lint && npm run prettier",
+    "prettier": "prettier --write ./dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:cover": "echo \"Error: no test specified\" && exit 1"
   },
@@ -37,6 +39,10 @@
   "devDependencies": {
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typedoc": "^0.25.3",
