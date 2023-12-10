@@ -3,7 +3,7 @@ name: Generate and Deploy Documentation
 on:
   push:
     branches:
-      - production # Change this to your main branch
+      - production
 
 jobs:
   build:
