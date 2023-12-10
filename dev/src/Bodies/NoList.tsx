@@ -1,4 +1,4 @@
-import { Fragment, ReactElement, ReactFragment } from 'react';
+import { ExoticComponent, Fragment, ReactElement } from 'react';
 import { FilteredListBodyProps, useFilteredListContext } from '../FilteredList';
 
 /**
@@ -7,13 +7,13 @@ import { FilteredListBodyProps, useFilteredListContext } from '../FilteredList';
 type FilteredListNoListProps<TData> = FilteredListBodyProps<
   TData,
   HTMLElement,
-  ReactFragment
+  ExoticComponent
 >;
 
 export default function FilteredListNoList<TData>({
   render,
   ...fragmentProps
-}: FilteredListNoListProps<TData>): ReactElement<ReactFragment> {
+}: FilteredListNoListProps<TData>): ReactElement<ExoticComponent> {
   const { filteredData } = useFilteredListContext<TData>();
   return <Fragment {...fragmentProps}>{filteredData.map(render)}</Fragment>;
 }
