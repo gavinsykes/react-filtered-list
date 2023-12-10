@@ -23,7 +23,6 @@ export default function FilteredListFilterInput<TData>({
   ...inputProps
 }: FilteredListFilterInputProps<TData, HTMLInputElement>) {
   const { filterValues, updateFilterValue } = useFilteredListContext<TData>();
-  console.log(filterValues);
   const inputValue = filterValues[assignedProperty] ?? '';
   useInputValidation(inputProps.type);
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
